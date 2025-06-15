@@ -1,0 +1,44 @@
+{% extends "base-yuk.html" %}
+
+{% load static%}
+
+{% block title %}
+    آگهی های من 
+{% endblock %}
+
+{% block content %}
+    <h5 class="text-end border-bottom py-2 mb-4">آگهی های من</h5>
+
+    {% if ads|length == 0  %}
+        <br>
+        <br>
+        <h3 class="text-center my-4 text-danger">آگهی یافت نشد</h3>
+    {% endif %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            {% for ad in ads %}
+            {% if ad.0.status == 'A' %}
+            <div class="card col-3 m-3 bg-success">
+            {% else %}
+            <div class="card col-3 m-3">
+            {% endif %}
+            
+                <div class="card-body p-4">
+                  <h4 class="card-title text-center">{{ad.0.title}}</h4>
+                  <hr>
+                  <h6 class="card-subtitle mb-3 text-muted"><span class="text-info">مبدا: </span>{{ad.1.origin}}</h6>
+                  <h6 class="card-subtitle mb-3 text-muted"><span class="text-info">مقصد: </span>{{ad.1.destination}}</h6>
+                  <p class="mb-3"><span class="text-info">وضعیت: </span>{{ad.0.get_status_display}}</p>
+                  <p class="mb-3"><span class="text-info">تاریخ: </span>{{ad.0.date}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        
+
+        </div>
+        
+    </div>
+
+
+{% endblock %}

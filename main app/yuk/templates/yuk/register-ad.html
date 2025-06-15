@@ -1,0 +1,35 @@
+{% extends "base-yuk.html" %}
+
+{% load static%}
+
+{% block title %}
+    ثبت آگهی اعلام بار 
+{% endblock %}
+
+
+{% block content %}
+    {% load bootstrap5 %}
+
+    <h5 class="text-end border-bottom py-2 mb-4">ثبت آگهی اعلام بار</h5>
+
+    <form action="" method="post"><input type='hidden'/>
+        {% csrf_token %}
+
+        <h6 class="my-5">اطلاعات آگهی</h6>
+
+        {% bootstrap_form form1 %}
+
+        <h6 class="my-5">اطلاعات بار</h6>
+        
+        {% bootstrap_form form2 %}
+        <p class="text-danger pt-2"><b>چنانچه دستورالعمل خاصی هنگام حمل، بارگیری و تخلیه لازم است که اجرا شود، در اینجا ذکر کنید</b></p>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-outline-info">مرحله بعدی</button>
+        </div>
+        
+    </form>
+
+
+
+{% endblock %}

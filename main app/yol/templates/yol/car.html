@@ -1,0 +1,52 @@
+{% extends "base-yol.html" %}
+
+{% load static%}
+
+{% block title %}
+    اطلاعات خودرو 
+{% endblock %}
+
+{% block content %}
+    {% load bootstrap5 %}
+    <h5 class="text-end border-bottom py-2 mb-4">اطلاعات خودرو</h5>
+    
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-2 border shadow-sm p-3 m-3 text-center">
+                <h6  class="text-info">مدل خودرو</h6>
+                <hr>
+                <p>{{model}}</p>
+            </div>
+            <div class="col-md-2 border shadow-sm p-3 m-3 text-center">
+                <h6  class="text-info">سال ساخت</h6>
+                <hr>
+                <p>{{year}}</p>
+            </div>
+            <div class="col-md-2 border shadow-sm p-3 m-3 text-center">
+                <h6  class="text-info">ظرفیت</h6>
+                <hr>
+                <p>{{capacity}} کیلوگرم</p>
+            </div>
+            <div class="col-md-2 border shadow-sm p-3 m-3 text-center">
+                <h6  class="text-info">نوع باربر</h6>
+                <hr>
+                <p>{{type}}</p>
+            </div>
+            <div class="col-md-2 border shadow-sm p-3 m-3 text-center">
+                <h6  class="text-info">پلاک خودرو</h6>
+                <hr>
+                <p>{{licensePlate}}</p>
+            </div>
+        </div>
+        <form class="my-4" enctype="multipart/form-data" method="post"><input type='hidden'/>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            
+            <div class="d-grid">
+              <button type="submit" class="btn btn-main">ذخیره تغییرات</button>
+            </div>
+          </form>
+    </div>
+
+
+{% endblock %}

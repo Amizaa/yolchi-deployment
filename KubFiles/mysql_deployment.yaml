@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: yolchidb
+            - name: MYSQL_ROOT_PASSWORD
+              value: 1381
+            - name: MYSQL_USER
+              value: yolchiadmin
+            - name: MYSQL_PASSWORD
+              value: yolchiadmin
+          image: mysql:latest
+          name: mysql
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-data
+          resources:
+            limits:
+              cpu: "0.5"
+              ephemeral-storage: 1G
+              memory: 1G
+            requests:
+              cpu: "0.5"
+              ephemeral-storage: 1G
+              memory: 1G
+      restartPolicy: Always
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-data

@@ -1,0 +1,57 @@
+{% load static %}
+
+<header>
+
+  <div id="top-menu" class="d-flex bg-white border-bottom align-items-center shadow-sm py-1">
+
+    <div class="d-lg-none">
+      <input type="checkbox" role="button" class="menu" id="sidebar-toggle">
+    </div>
+
+    <ul class="nav d-none d-md-flex">
+        <li class="nav-item  px-3">
+            <a class="nav-link text-muted" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item  px-3">
+            <a class="nav-link text-muted" href="{% url 'main:ads' %}">آگهی های اعلام بار</a>
+        </li>
+    </ul>
+
+</div>
+
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar bg-info">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+            <div class="d-flex justify-content-center mb-3 bg-white">
+                <img src="{% static 'yuk/images/yuk-logo.png' %}" width="200"  height="170">
+            </div>
+
+          <a href="/yuk/profile" class="list-group-item list-group-item-action py-2">
+                <span>پروفایل</span>
+          </a>
+
+          <a href="/yuk/register-ad" class="list-group-item list-group-item-action py-2 ">
+                <span>ثبت اعلام بار</span>
+          </a>
+          
+          <a href="/yuk/my-ads" class="list-group-item list-group-item-action py-2">
+            <span>آگهی های من</span>
+          </a>
+
+          <a href="/yuk/my-waybills" class="list-group-item list-group-item-action py-2">
+            <span>بارنامه های من</span>
+          </a>
+
+          <a href="{% url 'main:signout' %}" class="list-group-item list-group-item-action py-2 mt-5 text-dark" >
+          <span>خروج از حساب کاربری</span>
+          </a>
+
+        </div>
+      </div>
+    </nav>
+
+    
+  </header>
+
+
+  <script src="{% static 'yuk/style/js/script.js' %}"></script>

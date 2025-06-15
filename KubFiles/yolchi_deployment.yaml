@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolchi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+     app: yolchi
+  template:
+    metadata:
+      labels:
+        app: yolchi
+    spec:
+      containers:
+      - name: yolchi
+        image: amirrezano/yolchi:v1
+        ports:
+        - containerPort: 8000
+        env:  
+            - name: DATABASE_NAME
+              value: yolchidb
+            - name: DATABASE_USERNAME
+              value: yolchiadmin
+            - name: DATABASE_PASSWORD
+              value: yolchiadmin
+            - name: DATABASE_HOST
+              value: mysql
+            - name: DATABASE_PORT
+              value: "3306"
+        resources:
+            limits:
+              cpu: "0.5"
+              ephemeral-storage: 1G
+              memory: 1G
+            requests:
+              cpu: "0.5"
+              ephemeral-storage: 1G
+              memory: 1G
+      restartPolicy: Always
+
+

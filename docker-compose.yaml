@@ -1,0 +1,32 @@
+services:
+  yolchi:
+    build:
+      context: ./KubFiles
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=IMDB
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

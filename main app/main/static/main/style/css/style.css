@@ -1,0 +1,143 @@
+@font-face {
+    font-family: vazir;
+    src: url('../../fonts/Vazir.ttf');
+}
+
+@font-face {
+    font-family: anjoman-heavy;
+    src: url('../../fonts/Anjoman-Heavy.ttf');
+}
+
+@font-face {
+    font-family: anjoman-light;
+    src: url('../../fonts/Anjoman-Regular.ttf');
+}
+
+
+:root{
+    --main: #495979;
+}
+
+body{
+font-family: anjoman-light,sans-serif !important; 
+direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: anjoman-heavy,sans-serif !important; 
+    line-height: 1.6;
+}
+
+#home-top{
+    background-image: url(../../images/background.png);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-container{
+    height: 500px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    position: absolute;
+}
+
+
+.divider {
+    border: 2px solid var(--main);
+    border-radius: 50px;
+    margin: 20px 0;
+    width: 25%;
+}
+
+
+.hover-effect img{
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.hover-effect:hover img {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.icon {
+    width: 40px;
+}
+
+.paragraph{
+    font-size: 1.7rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.form-control:hover{
+    cursor: pointer;
+}
+
+.contact-form{
+    box-shadow: 0 6px 30px 7px #2125471a;
+    transition: 0.5s;
+}
+
+.contact-form:hover{
+    transform: translateY(-20px);
+}
+
+  .log-body{
+    background-image: url(../../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+  }
+
+  .form-container{
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+  }
+
+  .bg-main{
+    background-color: var(--main) !important;
+  }
+
+  .btn-outline-main {
+    color: var(--main) !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: var(--main) !important;
+  }
+  
+  .btn-outline-main:hover {
+    color: #fff !important;
+    background-color: var(--main) !important;
+    border-color: var(--main) !important;
+  }
+
+
+  .text-main{
+    color: var(--main) !important;
+  }
+  
+  .btn-main {
+    color: #fff !important;
+    background-color: var(--main) !important;
+    border-color: var(--main) !important;
+  }
+  
+  .btn-main:hover {
+    color: #fff !important;
+    background-color: #3d4b68 !important;
+    border-color: #3d4b68 !important;
+  }
